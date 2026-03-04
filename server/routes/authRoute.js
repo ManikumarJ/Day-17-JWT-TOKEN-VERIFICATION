@@ -1,10 +1,22 @@
 import express from 'express'
-import { Register } from '../Controller/authController.js'
+import { addRegister,addLogin,getData } from '../Controller/authController.js'
+import { verifyUserData } from '../middleware/authMiddleware.js'
+
 
 const route = express.Router()
 
-route.post("/register", Register)
+
+route.post("/register",addRegister)
+
+route.post("/login",addLogin)
+
+route.get("/dashboard",verifyUserData,getData)
 
 export default route
 
+
+
 // http://localhost:5000/api/auth/register
+// http://localhost:5000/api/auth/login
+
+// http://localhost:5000/api/auth/dashboard

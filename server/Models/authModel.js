@@ -1,14 +1,11 @@
-// import mongoose  from "mongoose";
+import mongoose from "mongoose";
 
-// const authSchema = new  mongoose.Schema(
-//     {
-//         name : {type: String, require},
-//         email : {type: String, require},
-//         password : {type: String, require}
-//     },
-//     {timestamps:true}
-// )
+const authSchema = new mongoose.Schema({
+  name: {type: String, required: true},
+  email: {type: String,required: true},
+  password: {type: String,required: true}
+});
 
-// const authModel = mongoose.model("authData", authSchema )
+const Auth = mongoose.model("Auth", authSchema);
 
-// export default authModel
+export default Auth;
